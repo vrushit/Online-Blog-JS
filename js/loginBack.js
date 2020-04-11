@@ -46,6 +46,12 @@ $(".btn-lg").click(function(){
 
 });
 
+$("#signUp").click(function(){
+  window.location.href = "registerSignUp.html";
+
+
+});
+
  ///
  firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
