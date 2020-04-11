@@ -1,0 +1,48 @@
+*{
+    font-family: 'Source Code Pro', monospace;
+
+}
+
+.navbar{
+    width:100%;
+    height:70px;
+    background: #738CA2;
+}
+
+.navbar a{
+    font-size:1.5rem;
+    font-weight: bold;
+    font-weight:400;
+    color: whitesmoke;
+}
+
+.logout{
+   margin-left:700px;
+
+}
+.navbar-right button{
+    color:#738CA2;
+    font-weight: bold;
+    font-size: 1.3rem;
+    font-weight:400;
+}
+
+.navbar-nav li{
+    margin-left:20px;
+    margin-right: 20px;
+}
+
+.navbar a:hover{
+    background: #fff;
+    color:#738CA2;
+    border: 1px solid #738CA2;
+    border-radius: 1rem;
+}
+
+.navbar-right button:hover{
+
+    background: #fff;
+    color:#738CA2;
+    border: 1px solid #738CA2;
+}
+
