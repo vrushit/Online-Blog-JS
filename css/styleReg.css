@@ -66,11 +66,11 @@
     font-family: 'Open Sans', sans-serif;
     font-weight: normal;
     border-radius: 1em;
-    height: 380px;
+    height: 320px;
   }
   
   .card-signin .card-title {
-    margin-bottom: 1rem;
+    margin-bottom: 1.3rem;
     font-weight: 300;
     font-size: 1.5rem;
   }
@@ -122,7 +122,7 @@
     transition: all .1s ease-in-out;
   }
   .form-label-group{
-      height:20px;
+      height:25px;
   }
   
   .form-label-group input::-webkit-input-placeholder {
