@@ -13,14 +13,7 @@ var firebaseConfig = {
   firebase.analytics();
 
 
-  firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-      // User is signed in.
-        window.location.href = "index.html";
-      // ...
-    } 
-  
-  });
+
 
 
   $("#signUp").click(function(){
@@ -58,6 +51,21 @@ var firebaseConfig = {
         // Modal for not filling up values
         alert("Please fill all the values");
     }
+
+  });
+
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // User is signed in.
+        window.location.href = "Dashboard.html";
+      // ...
+    } 
+  
+  });
+
+  $("#signInPage").click(function(){
+
+    window.location.href ="index.html";
 
   });
 
