@@ -1,0 +1,3 @@
+git remote add origin https://github.com/vrushit/Online-Blog-JS.git
+
+ git push -u origin master

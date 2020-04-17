@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Settings</title>   
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="./css/styleAccoutnSetting.css" >
+</head>
+<body>
+    <div class="container">
+     
+      <div class="row">
+       
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+          <div class="card card-signin my-5">
+            <div class="card-body">
+              <h5 class="card-title text-center">Account settings</h5>
+              <div class="form-signin">
+                <div class="form-label-group">
+                <input type="text" id="inputFirstName" class="form-control" placeholder="First Name" required autofocus>
+                <label for="inputFirstName">First Name</label>
+              </div>
+  
+                <div class="form-label-group">
+                  <input type="text" id="inputSecondName" class="form-control" placeholder="Second name" required>
+                  <label for="inputSecondName">Second Name</label>
+                </div>
+
+                <div class="form-label-group">
+                    <input type="number" id="inputPNo" class="form-control" placeholder="Phone no..." required>
+                    <label for="inputPNo">Phone Number</label>
+                  </div>
+
+                <div class="form-label-group">
+                    <select placeholder="Profession" id="inputProfession" class="form-control"  required>
+                        <option value="" disbaled selected>Profession</option>
+                        <option value="Student">Student</option>
+                        <option value="House Wife">House Wife</option>
+                        <option value="Executive">Executive</option>
+                        <option value="Business">Business</option>
+                        <option value="Employee">Employee</option>
+                    </select>
+                  </div>
+                  
+                  <div class="form-label-group">
+                    <textarea id="inputBio" class="form-control" cols="50" row="4">Enter Short Bio here</textarea>
+                  </div>
+
+                <button class="btn btn-up btn-primary btn-block text-uppercase" type="submit" id="update">Update</button>
+                <hr class="my-4">
+
+            </div>
+           
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/accountSettings.js"></script>
+</body>
+</html>

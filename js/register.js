@@ -57,7 +57,21 @@ var firebaseConfig = {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // User is signed in.
-        window.location.href = "Dashboard.html";
+        let uId = firebase.auth().currentUser.uid;
+
+        firebase.database().ref("Users/" + uId).once('value').then(function(dataSnapshot){
+
+          if(dataSnapshot.val())
+          {
+            window.location.href = "Dashboard.html";
+          }
+          else{
+            window.location.href = "AccountSettings.html";
+
+          }
+
+        });
+
       // ...
     } 
   
