@@ -32,3 +32,67 @@ var firebaseConfig = {
         firebase.auth().signOut();
 
   });
+
+
+  //============Validation of Post Blogs==========================
+
+    let validationImages = ["image/gif", "image/jpeg", "image/png"];
+
+    $("#selectedImage").hide();
+
+    function previewImage(image_blog)
+    {
+      if(image_blog.files && image_blog.files[0])
+      {
+        let reader = new FileReader();
+      reader.onload = function(e)
+      {
+        $("#selectedImage").attr('src', e.target.result);
+    
+          // $("#selectedImage").fadeIn();    
+      
+        
+      }
+      reader.readAsDataURL(image_blog.files[0]);
+
+      $("#selectedImage").show();
+
+      }
+    }
+    $("#mainImageBlog").change(function(){
+
+      previewImage(this);
+
+    });
+
+    $("#save-blog").click(function(){
+
+      $("#descriptionBlogSection").removeClass("is-invalid");
+      $("#mainImageBlog").removeClass("is-invalid");
+
+      let desc = $("#descriptionBlogSection").val();
+      var pic =  $("#mainImageBlog").prop("files")[0];
+
+        if(!desc)
+        {
+          $("#descriptionBlogSection").addClass("is-invalid");
+          return;
+        }
+        if(pic == null)
+        {
+          $("#mainImageBlog").addClass("is-invalid");
+          return;
+
+        }
+
+        if($.inArray(pic["type"], validationImages)<0)
+        {
+          $("#mainImageBlog").addClass("is-invalid");
+          return;
+        }
+
+
+    });
+
+  //============Validation ends here=================================
+
