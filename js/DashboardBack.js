@@ -91,8 +91,104 @@ var firebaseConfig = {
           return;
         }
 
+        //==========================Upload and Save Blogs to Firebase storage ============================
 
+    let databaseRef = firebase.database().ref().child("Blogs");
+
+    databaseRef.once("value").then(function(snapShot){
+
+      let name = pic["name"];
+      let dateStr = Date().getTime();
+      let fileCompleteName = name + "_" + dateStr;
+
+      let storageRef = firebase.storage().ref().child("Blog Images");
+      let blogStorageRef = storageRef.child(fileCompleteName);
+
+      let uploadTask = blogStorageRef.put(pic);
+
+     uploadTask.on(
+       "state_change", 
+
+       function progress(snapshot)
+       {
+         var percent = (snapshot.bytesTransferred/ snapshot.totalBytes) * 100;
+
+         $("#upload-progress").html(Math.round(percent) + "%");
+         $("#upload-progress").attr("style","width" + percent + "%");
+
+       },
+       function error(err)
+       {
+
+       },
+       function complete()
+       {
+         let user = firebase.auth().currentUser;
+         let userName;
+         firebase.database().ref("Users/ + user.uid").once("value").then(function(snapshot){
+
+          let fName = (snapshot.val() && snapshot.val().firstName);
+          let sName = (snapshot.val() && snapshot.val().secondName);
+
+          userName = fName + " " + sName;
+    
+
+         });
+
+         uploadTask.snapShot.getDownloadURL().then(function(downloadURL){
+
+          let time_stamp = new Date();
+          let options = {
+
+            weekday: "long",
+            month: "long",
+            day:"2-digit",
+            year:"numeric"
+
+          };
+
+          let blogData = {
+
+            "image": downloadURL,
+            "iName": fileCompleteName,
+            "desc": desc,
+            "uid": user.uid,
+            "name":userName,
+            "time":time_stamp.toLocalString("en-US",{hour: 'numeric', minute: "numeric", hour12: true}),
+            "date": time_stamp.toLocaleDateString('en-US', options)
+
+          };
+
+          let newPostRef = database().push();
+
+          newPostRef.set(blogData, function(error){
+
+            if(error)
+            {
+              $("#result").attr("class","alert alert-danger");
+              $("#result").html(error.message);
+            }
+            else{
+              $("#result").attr("class","alert alert-success");
+              $("#result").html("Blog Uploaded Successfully");
+
+              window.open("","_self");
+
+            }
+
+          });
+
+         });
+
+       }
+     
+     ); 
+
+    });
+
+  //================================================================================
     });
 
   //============Validation ends here=================================
 
+  
