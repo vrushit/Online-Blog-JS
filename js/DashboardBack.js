@@ -252,6 +252,8 @@ var firebaseConfig = {
         blogHtml += singleBlog.val().desc;
         blogHtml += `</div> <br>`;
 
+       
+
         blogHtml += "</div>";
 
       });
@@ -261,6 +263,8 @@ var firebaseConfig = {
     }
 
   });
+
+ 
 
 
 

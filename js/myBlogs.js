@@ -72,6 +72,10 @@ var firebaseConfig = {
         blogHtml += singleBlog.val().desc;
         blogHtml += `</div> <br>`;
 
+        blogHtml += "<div class='form-group' style='text-align: justify; color: black;'>"
+        blogHtml += "<button class='form-control btn btn-light bg-dark text-white' onclick=deleteBlogRecord('"+singleBlog.key+"')>DeleteThis Post</button>";
+        blogHtml += `</div> <br>`;
+
         blogHtml += "</div>";
 
       });
@@ -82,9 +86,31 @@ var firebaseConfig = {
 
   });
 
+
+    
+
     }
+
+    
+
   
   });
+
+  function deleteBlogRecord(key)
+    {
+        let deleteRef = firebase.database().ref().child("Blogs").child(key);
+
+        return deleteRef.remove()
+        .then(function(){
+
+            console.log("Removed Successfully");
+
+        }).catch(function(){
+
+            console.log("Error Occures");
+
+        });
+    }
 
 
 
