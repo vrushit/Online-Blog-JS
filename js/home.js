@@ -14,33 +14,6 @@ var firebaseConfig = {
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
 
-
-
-  firebase.auth().onAuthStateChanged(function(user) {
-    if (!user) {
-      // User is signed in.
-
-      window.location.href = "index.html";
-
-      // ...
-    } 
-  
-  });
-
-  $('#logoutBtn').click(function(){
-
-        firebase.auth().signOut();
-
-  });
-
-
-  $("#myBlogs").click(function(){
-
-    window.location.href="myBlogs.html"
-
-  });
-
-
   //============Validation of Post Blogs==========================
 
     let validationImages = ["image/gif", "image/jpeg", "image/png"];
@@ -261,9 +234,6 @@ var firebaseConfig = {
     }
 
   });
-
-
-
 
 
   //==================Reteriev ends here==============================

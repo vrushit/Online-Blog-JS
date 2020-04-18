@@ -1,0 +1,58 @@
+<div class="blogPost">
+    <!--=================Blog Post Area=========-->
+      <div class="container text-center">
+
+        <script>
+          var counter =0 ;
+
+        </script>
+        <form id="blog-form">
+          <div class="form-group">
+            <textarea type="text" placeholder="Description.."  row="5" class="form-control descriptionBlog" id="descriptionBlogSection"></textarea> 
+            <div class="invalid-feedback">
+              Please enter some description
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="file" class="form-control" id="mainImageBlog"/>
+            <div class="invalid-feedback">
+              Please choose a valid picture
+            </div>
+          </div>
+          <div class="form-group">
+            <img id="selectedImage" width="250" height="200" src="#" />
+          </div>
+          <div class="form-group">
+            <div class="progess bg-secondary">
+                <div class="progress-bar bg-success" id="upload-progress" style="width:0%">0%</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <button id="save-blog" type="button">
+              Post
+            </button>
+          </div>
+        </form>
+        <div id="result" >
+
+        </div>
+      </div>
+  </div>
+  <!--=====================After Blog Post Ends===================-->
+    <hr>
+    <br>
+    
+    <div class="text-center text-dark bg-light">
+      <h3>
+        All New Blogs
+      </h3>
+    </div>
+
+    <hr>
+    <br>
+    <div class="row container-fluid ">
+        <div class="col-sm-12" id="blogs">
+
+        </div>
+    </div>
+    <script src="js/home.js"></script>
