@@ -1,81 +1,118 @@
 *{
-    font-family: 'Source Code Pro', monospace;
-
+    box-sizing: border-box;
+    margin:0px;
+    padding:0px;
 }
 
-.navbar{
-    width:100%;
-    height:80px;
-    background: #738CA2;
+nav{
+    padding:10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    font-family: "Poppins", sans-serif;
+    background-color: #738CA2;
+}
+.logo{
+    color:whitesmoke;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 20px;
 }
 
-.navbar a{
-    font-size:1.5rem;
+.nav-links{
+    display: flex;
+    justify-content: space-around;
+    width:30%;
+}
+
+.nav-links a{
+    color:whitesmoke;
+    text-decoration: none;
+    letter-spacing: 3px;
     font-weight: bold;
-    font-weight:400;
-    color: whitesmoke;
-}
-
-.logout{
-   margin-left:450px;
-
-}
-.navbar-right button{
-    color:#738CA2;
-    font-weight: bold;
-    font-size: 1.3rem;
-    font-weight:400;
-}
-
-.navbar-nav li{
-    margin-left:20px;
-    margin-right: 20px;
-}
-
-.navbar a:hover{
-    background: #fff;
-    color:#738CA2;
-    border: 1px solid #738CA2;
-    border-radius: 1rem;
-}
-
-.navbar-right button:hover{
-
-    background: #738CA2;
-    color:#fff;
-    border: 1px solid #fff;
-}
-.search{
-    margin-left:30px;
+    font-size: 14px;
     
 }
-.search-input{
-    float:left;
-    width: 200px;
-}
-.search-button{
-    float:right;
-    
-    margin-left: 10px;
-    width:100px;
+
+.nav-links li{
+    list-style:none;
 }
 
-.search-button button{
-    color: #738CA2;
+.burger{
+    display: none;
+}
+
+.burger div{
+    width:25px;
+    height:3px;
     background: whitesmoke;
-    font-size: 1.1rem;
-    font-weight:400;
-    font-weight: bold;
-    border: 1px solid #738CA2;
-}
-.search-button button:hover{
-    background: #738CA2;
-    color:#fff;
-    border: 1px solid #fff;;
+    margin:5px;
 }
 
 
+@media screen and (max-width:1024px)
+{
+    .nav-links{
+        width:60%;
+    }
+}
 
+@media screen and (max-width:768px)
+{
+    body{
+        overflow-x: hidden;
+    }
+    .nav-links{
+        position: absolute;
+        right: 0px;
+        height: 92vh;
+        top:8vh;
+        background:#738CA2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width:50%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }   
+
+    .nav-links li{
+        opacity: 0;
+    }
+
+    .burger{
+        display: block;
+        cursor: pointer;
+    }
+}
+
+.nav-active{
+    transform: translateX(0%);
+}
+
+@keyframes navLinkFade{
+    from{
+        opacity:0;
+        transform: translateX(50px);
+    }
+    to{
+        opacity:1;
+        transform: translateX(0px);
+
+    }
+}
+
+.toggle .line1{
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+.toggle .line2{
+   opacity:0; 
+}
+.toggle .line3{
+    transform: rotate(45deg) translate(-5px, -6px);
+
+}
 #save-blog{
     font-family: 'Source Code Pro', monospace;
 
